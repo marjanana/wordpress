@@ -478,12 +478,12 @@ class BWGViewGalleries_bwg {
           tr.appendChild(td_tag);
           var a_tag = document.createElement('a');
           a_tag.setAttribute('class', "button-small wd-btn wd-btn-primary wd-not-image thickbox thickbox-preview");
-          a_tag.setAttribute('title' , "<?php _e("Add tag", 'bwg_back'); ?>");
+          a_tag.setAttribute('title' , "<?php addslashes(_e("Add tag", 'bwg_back')); ?>");
           <?php 
           $query_url = wp_nonce_url( admin_url('admin-ajax.php'), 'addTags', 'bwg_nonce' );
           ?>
           a_tag.setAttribute('href', "<?php echo add_query_arg(array('action' => 'addTags', 'width' => '650', 'height' => '500', 'bwg_items_per_page' => $per_page), $query_url); ?>&image_id=" + bwg_j + "&TB_iframe=1");
-          a_tag.innerHTML = '<?php _e("Add tag", 'bwg_back'); ?>';
+          a_tag.innerHTML = '<?php addslashes(_e("Add tag", 'bwg_back')); ?>';
           td_tag.appendChild(a_tag);
           var div_tag = document.createElement('div');
           div_tag.setAttribute('class', "tags_div");
@@ -529,8 +529,8 @@ class BWGViewGalleries_bwg {
           j_int++;
           bwg_j = 'pr_' + j_int;
         }
-        jQuery("#show_hide_weights").val("<?php _e("Hide order column", 'bwg_back'); ?>");
-        jQuery("#show_hide_weights").attr('title',"<?php _e("Hide order column", 'bwg_back'); ?>");
+        jQuery("#show_hide_weights").val("<?php addslashes(_e("Hide order column", 'bwg_back')); ?>");
+        jQuery("#show_hide_weights").attr('title',"<?php addslashes(_e("Hide order column", 'bwg_back')); ?>");
         spider_show_hide_weights();
       }
     </script>
